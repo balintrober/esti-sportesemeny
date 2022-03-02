@@ -3,7 +3,7 @@
   <div>
     <form @submit.prevent="kuld">
       <div>
-        <input type="text" name="nev" v-model="nev" placeholder="Teszt Elek" />
+        <input type="text" name="nev" v-model="nev" placeholder="Teszt Elek" @change="check"/>
       </div>
       <div>
         <input type="date" name="szul" v-model="szul" />
@@ -26,10 +26,10 @@
       </div>
       <div>
         <label>Feltételeket elfogadom: </label>
-        <input type="checkbox" name="aszf" />
+        <input type="checkbox" name="aszf" v-model="aszf" />
       </div>
       <div>
-        <input type="submit" value="Jelentkezés" />
+        <input type="submit" value="Jelentkezés" :disabled="kitoltve" />
       </div>
     </form>
   </div>
@@ -46,16 +46,23 @@ export default {
       //   email: "",
       //   nem: "",
       // },
-      nev: "",
-      szul: "",
-      email: "",
-      nem: "",
+      nev: '',
+      szul: '',
+      email: '',
+      nem: '',
+      aszf: '',
+      kitoltve: true
     };
   },
   methods: {
     kuld() {
       this.nevezes.nev = this.nev;
     },
+    check(){
+      if (this.nev != ''){
+        this.kitoltve = false
+      }
+    }
   },
 };
 </script>
