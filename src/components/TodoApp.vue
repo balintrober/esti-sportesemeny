@@ -39,12 +39,13 @@
 export default {
   data() {
     return {
-      nevezes: {
-        nev: "",
-        szul: "",
-        email: "",
-        nem: "",
-      },
+      nevezes: null,
+      // {
+      //   nev: "",
+      //   szul: "",
+      //   email: "",
+      //   nem: "",
+      // },
       nev: "",
       szul: "",
       email: "",
