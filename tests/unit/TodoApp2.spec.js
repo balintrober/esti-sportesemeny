@@ -8,4 +8,13 @@ describe('TodoApp komponens tesztelése', () => {
         await input.setValue('Tesztelő')
         expect(wrapper.vm.nev).toBe('Tesztelő')
     })
+
+    test('Feltételek elfogadásának tesztje', async () => {
+        const wrapper = mount(TodoApp)
+        const inputCheck = wrapper.find('input[type="checkbox"]')
+
+        await inputCheck.setChecked()
+        expect(inputCheck.element.checked).toBeTruthy()
+        // expect(inputCheck.element.checked).toBe(true)
+    })
 })
